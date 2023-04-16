@@ -1,10 +1,6 @@
-aaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaa
+1.函数 usertrap() 调用了 syscall() 函数。
+2.得到 a7 的值为 7 。根据参考教材 xv6 book 第二章和 user/initcode.S 中的代码可知，这个 a7 寄存器中保存了将要执行的系统调用号。这里的系统调用号为 7，在 kernel/syscall.h 中可以找到，这个系统调用为 SYS_exec 。
+3.用户模式（User Mode）
+4.内核 panic 在 lw a3,0(zero)。num 代表 a3 寄存器
+5.内核因为加载了一个未使用的地址 0 处的内存数据而崩溃（Load page fault）。地址 0 并不映射到内核空间中（从 0x80000000 开始）。
+6.这个二进制的名字为 initcode ，其 process id 为 1.
