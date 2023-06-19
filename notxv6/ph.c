@@ -42,13 +42,14 @@ void put(int key, int value)
 {
   int i = key % NBUCKET;
 
-  pthread_mutex_lock(&bkt_lock[i]);
+  
   // is the key already present?
   struct entry *e = 0;
   for (e = table[i]; e != 0; e = e->next) {
     if (e->key == key)
       break;
   }
+  pthread_mutex_lock(&bkt_lock[i]);
   if(e){
     // update the existing key.
     e->value = value;
